@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  sqldb:
+    container_name: sqldb
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=MyPass@word
+      - MSSQL_PID=Developer
+      - MSSQL_USER=SA
+  exchange_api:
+    container_name: exchange_api
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5001
+      - RabbitMqUrl=rabbitmq
+    ports:
+      - "5001:5001"
+    depends_on:
+      - sqldb

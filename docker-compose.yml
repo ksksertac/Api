@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  sqldb:
+    image: mcr.microsoft.com/azure-sql-edge
+  rabbitmq:
+    image: rabbitmq:3.8.14-management
+  exchange_api:
+    image: exchange_api_image
+    build:
+      context: .
+      dockerfile: Exchange.Api/Dockerfile

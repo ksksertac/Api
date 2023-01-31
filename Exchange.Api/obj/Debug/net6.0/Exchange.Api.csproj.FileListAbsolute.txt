@@ -1,0 +1,110 @@
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/bin/Debug/net6.0/appsettings.Development.json
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/bin/Debug/net6.0/appsettings.json
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/bin/Debug/net6.0/Exchange.Api
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/bin/Debug/net6.0/Exchange.Api.dll
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/bin/Debug/net6.0/Exchange.Api.pdb
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.csproj.AssemblyReference.cache
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.AssemblyInfoInputs.cache
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.AssemblyInfo.cs
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.csproj.CoreCompileInputs.cache
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/scopedcss/bundle/Exchange.Api.styles.css
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.dll
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/refint/Exchange.Api.dll
+/Users/sertac/Desktop/adsız klasör/Exchange.Api/obj/Debug/net6.0/Exchange.Api.pdb
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/appsettings.Development.json
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/appsettings.json
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Exchange.Api
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Exchange.Api.deps.json
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Exchange.Api.runtimeconfig.json
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Exchange.Api.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Exchange.Api.pdb
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/AutoMapper.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Automatonymous.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/DynamicExpresso.Core.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Fop.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/GreenPipes.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Humanizer.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.AspNetCoreIntegration.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.RabbitMqTransport.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Identity.Client.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.Win32.SystemEvents.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/NewId.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/RabbitMQ.Client.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.AspNetCore.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Expressions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Extensions.Hosting.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Extensions.Logging.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Formatting.Compact.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Console.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Debug.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.File.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.PeriodicBatching.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Seq.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Configuration.ConfigurationManager.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Drawing.Common.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Linq.Dynamic.Core.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Runtime.Caching.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Security.Cryptography.ProtectedData.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Security.Permissions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/System.Windows.Extensions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.csproj.AssemblyReference.cache
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.AssemblyInfoInputs.cache
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.AssemblyInfo.cs
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.csproj.CoreCompileInputs.cache
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/staticwebassets.build.json
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/staticwebassets.development.json
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/scopedcss/bundle/Exchange.Api.styles.css
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.csproj.CopyComplete
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.dll
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/refint/Exchange.Api.dll
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.pdb
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.genruntimeconfig.cache
+/Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/ref/Exchange.Api.dll
