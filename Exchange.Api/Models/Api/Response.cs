@@ -10,10 +10,8 @@ namespace Exchange.Api.Models
         [JsonIgnore]
         public int StatusCode { get; set; }
 
-        // [JsonIgnore]
         public bool IsSuccessful { get; set; }
 
-        [JsonIgnore]
         public string TimeStamp { get; set; }
 
         private List<string> _errors;

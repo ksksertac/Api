@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Exchange.Models.Api.Dtos
 {
@@ -7,13 +8,9 @@ namespace Exchange.Models.Api.Dtos
     {
         public long Id { get; set; }
         [Required]
-        public string Coin { get; set; }
-        [Required]
         public long UserId { get; set; }
         [Required]
         public decimal Amount { get; set; }
-        [Required]
-        public decimal Quantity { get; set; }
         [Required]
         public int Status { get; set; }
         public bool? SmsAllow { get; set; }

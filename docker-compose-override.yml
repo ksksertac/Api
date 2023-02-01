@@ -23,6 +23,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5001
       - RabbitMqUrl=rabbitmq
+      - ConnectionStrings=Server=sqldb;Database=ExchangeDb;User=sa;Password=MyPass@word;
     ports:
       - "5001:5001"
     depends_on:

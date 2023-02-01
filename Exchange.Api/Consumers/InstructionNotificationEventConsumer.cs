@@ -24,12 +24,13 @@ namespace Exchange.Api.Consumers
         /// </summary>       
         public async Task Consume(Mass.ConsumeContext<InstructionNotificationEvent> context)
         {
+            var instruction = await _instructionService.GetById(context.Message.InstructionId);
             //Email template
-            if(context.Message.Instruction.EmailAllow??false)
+            if((instruction.Data.EmailAllow??false) && !instruction.Data.EmailDate.HasValue)
             {
                 var template = await _notificationService.GetActive(1);
                 var title =  template.Data.TemplateTitle;
-                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",context.Message.Instruction.Id.ToString());
+                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",instruction.Data.Id.ToString());
                 //call email service
                 var responseSendMessage = await _notificationService.SendEmailAsync(context.Message.Email,title,message);
                 if(responseSendMessage.Errors!= null && responseSendMessage.Errors.Count>0)
@@ -37,21 +38,20 @@ namespace Exchange.Api.Consumers
                     throw new Exception(responseSendMessage.Errors.First());
                 }
                 //Bildirim yapıldı işaretlenir.
-                context.Message.Instruction.EmailDate = DateTime.Now;
-                context.Message.Instruction.EmailMessage = message;
-                context.Message.Instruction.Status = 3;//complete
-                var responseUpdate =  await _instructionService.UpdateAsync(context.Message.Instruction);
+                instruction.Data.EmailDate = DateTime.Now;
+                instruction.Data.EmailMessage = message;
+                var responseUpdate =  await _instructionService.UpdateAsync(instruction.Data);
                 if(responseUpdate.Errors!= null && responseUpdate.Errors.Count>0)
                 {
                     throw new Exception(responseUpdate.Errors.First());
                 }
             }   
             //Sms template
-            if(context.Message.Instruction.SmsAllow??false)
+            if((instruction.Data.SmsAllow??false) && !instruction.Data.SmsDate.HasValue)
             {
                 var template = await _notificationService.GetActive(2);
                 var title =  template.Data.TemplateTitle;
-                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",context.Message.Instruction.Id.ToString());
+                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",instruction.Data.Id.ToString());
                 //call email service
                 var responseSendMessage = await _notificationService.SendSmsAsync(context.Message.Email,title,message);
                 if(responseSendMessage.Errors!= null && responseSendMessage.Errors.Count>0)
@@ -59,21 +59,20 @@ namespace Exchange.Api.Consumers
                     throw new Exception(responseSendMessage.Errors.First());
                 }
                 //Bildirim yapıldı işaretlenir.
-                context.Message.Instruction.EmailDate = DateTime.Now;
-                context.Message.Instruction.EmailMessage = message;
-                context.Message.Instruction.Status = 3;//complete
-                var responseUpdate =  await _instructionService.UpdateAsync(context.Message.Instruction);
+                instruction.Data.SmsDate = DateTime.Now;
+                instruction.Data.SmsMessage = message;
+                var responseUpdate =  await _instructionService.UpdateAsync(instruction.Data);
                 if(responseUpdate.Errors!= null && responseUpdate.Errors.Count>0)
                 {
                     throw new Exception(responseUpdate.Errors.First());
                 }
             } 
             //Push template
-            if(context.Message.Instruction.PushAllow??false)
+            if((instruction.Data.PushAllow??false) && !instruction.Data.PushDate.HasValue)
             {
                 var template = await _notificationService.GetActive(3);
                 var title =  template.Data.TemplateTitle;
-                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",context.Message.Instruction.Id.ToString());
+                var message = template.Data.TemplateText.Replace("{0}",context.Message.UserNameSurName).Replace("{1}",instruction.Data.Id.ToString());
                 //call email service
                 var responseSendMessage = await _notificationService.SendPushAsync(context.Message.Email,title,message);
                 if(responseSendMessage.Errors!= null && responseSendMessage.Errors.Count>0)
@@ -81,10 +80,9 @@ namespace Exchange.Api.Consumers
                     throw new Exception(responseSendMessage.Errors.First());
                 }
                 //Bildirim yapıldı işaretlenir.
-                context.Message.Instruction.EmailDate = DateTime.Now;
-                context.Message.Instruction.EmailMessage = message;
-                context.Message.Instruction.Status = 3;//complete
-                var responseUpdate =  await _instructionService.UpdateAsync(context.Message.Instruction);
+                instruction.Data.PushDate= DateTime.Now;
+                instruction.Data.PushMessage = message;
+                var responseUpdate =  await _instructionService.UpdateAsync(instruction.Data);
                 if(responseUpdate.Errors!= null && responseUpdate.Errors.Count>0)
                 {
                     throw new Exception(responseUpdate.Errors.First());

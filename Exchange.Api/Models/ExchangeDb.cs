@@ -95,6 +95,32 @@ namespace Exchange.Api.Models
                 }
             );
 
+            modelBuilder.Entity<Instruction>().HasData(new Instruction
+                {
+                    Id = 1,
+                    CoinId = 1,
+                    UserId = 1,
+                    Status  = 2,
+                    Amount = 500,
+                    SmsAllow = true,
+                    EmailAllow = true,
+                    PushAllow = true,
+                    CreatedDate = DateTime.Now
+                },
+                new Instruction
+                {
+                    Id = 2,
+                    CoinId = 1,
+                    UserId = 1,
+                    Status  = 2,
+                    Amount = 200,
+                    SmsAllow = true,
+                    EmailAllow = true,
+                    PushAllow = true,
+                    CreatedDate = DateTime.Now
+                }
+            );
+
             base.OnModelCreating(modelBuilder);
         }
 

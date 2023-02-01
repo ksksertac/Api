@@ -29,7 +29,7 @@ builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttri
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Exchange Api", Version = "v1",Description = "Exchange Api" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Exchange Api", Version = "v1",Description = "You can give instructions with this api." });
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<INotificationService,NotificationService>();

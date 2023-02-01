@@ -28,7 +28,7 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     GET /exchanges/btc/instructions?pageNumber=1&pageSize=10&order=createdDate;asc
+        ///     GET /api/v1/exchanges/btc/instructions?pageNumber=1&pageSize=10&order=createdDate;asc
         ///
         /// </remarks>
         /// <response code="20O">instruction list</response>
@@ -41,20 +41,20 @@ namespace Exchange.Api.Controllers
         }
 
         /// <summary>
-        /// Retrieves a specific instruction
+        /// Retrieves a active instruction
         /// </summary>
         /// <param name="coin">Coin</param>
         /// <returns></returns>
         /// <remarks>
         /// Sample request:
         ///
-        ///     GET /exchanges/btc/instructions
+        ///     GET /api/v1/users/1/instructions/active
         ///
         /// </remarks>
         /// <response code="200">If there is a record</response>
         /// <response code="404">If record does not exist</response>
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string coin,[FromHeader] long userId)
+        [HttpGet("/api/v1/users/{userId}/instructions/active")]
+        public async Task<IActionResult> Get([FromHeader] long userId)
         {
             var response = await _instructionService.GetActive(userId);
             return CreateActionResultInstance(response);
@@ -69,11 +69,12 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /exchanges/btc/instructions
+        ///     POST /api/v1/exchanges/btc/instructions
         ///     {
-        ///         "isbn": "AA-11-23-1",
-        ///         "name": ".Net Core 3.1",
-        ///         "authorId": 3
+        ///         "amount": 390,
+        ///         "smsAllow": true,
+        ///         "emailAllow": true,
+        ///         "pushAllow": true
         ///     }
         ///
         /// </remarks>
@@ -81,10 +82,9 @@ namespace Exchange.Api.Controllers
         /// <response code="400">If the record is null</response>
         /// <response code="404">If The record does not exist</response>
         [HttpPost]
-        public async Task<IActionResult>  Post(string coin, InstructionDto model,[FromHeader] long userId)
+        public async Task<IActionResult> Post(string coin, InstructionCreateDto model,[FromHeader] long userId)
         {
-            //long userId,InstructionDto model
-            var response = await _instructionService.CreateAsync(userId,model);
+            var response = await _instructionService.CreateAsync(coin,userId,model);
             return CreateActionResultInstance(response);
         }
 
@@ -98,13 +98,13 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     DELETE /exchanges/btc/instructions/3
+        ///     DELETE /api/v1/exchanges/btc/instructions/3
         ///
         /// </remarks>
         /// <response code="204">Record was deleted</response>
         /// <response code="404">If the instruction does not exist</response>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string coin, int id,[FromHeader] long userId)
+        public async Task<IActionResult> Delete(string coin, long id,[FromHeader] long userId)
         {
             var response = await _instructionService.CancelAsync(id,userId);
             return CreateActionResultInstance(response);

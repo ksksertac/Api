@@ -8,6 +8,6 @@ namespace Exchange.Api.Events
         public string Email { get; set; }
         public string Phone { get; set; }
         public string DeviceId { get; set; }
-        public InstructionDto Instruction { get; set; }
+        public long InstructionId{ get; set; }
     }
 }
