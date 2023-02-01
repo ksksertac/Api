@@ -34,9 +34,15 @@ namespace Exchange.Api.Test.Controllers
             Assert.Equal(true, data.DataTotalCount>0);
         }
 
-        [Fact]
-        public void GetInstructionList_WithSortData_ThenDataTotalCountGreaterThanZero_Test()
+        [Theory,ClassData(typeof(InstructionTheoryData))]
+        public void GetInstructionList_WithSortData_ThenDataTotalCountGreaterThanZero_Test(InstructionCreateDto dto)
         {
+            var activeIntruction = _service.GetActive(1).Result;
+            if(!activeIntruction.IsSuccessful)
+            {
+                var re = _service.CreateAsync(1,dto).Result;
+            }
+
             FopQuery request = new FopQuery();
             request.Order = "id;asc";
             request.PageNumber = 1;
