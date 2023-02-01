@@ -20,7 +20,7 @@ namespace Exchange.Api.Controllers
         /// <summary>
         /// Retrieves instructions
         /// </summary>
-        /// <param name="coin">Coin</param>
+        /// <param name="userId">user Id</param>
         /// <param name="request">Filter</param>
         /// <returns></returns>
         /// <remarks>
@@ -41,7 +41,7 @@ namespace Exchange.Api.Controllers
         /// <summary>
         /// Retrieves a active instruction
         /// </summary>
-        /// <param name="coin">Coin</param>
+        /// <param name="userId">user Id</param>
         /// <returns></returns>
         /// <remarks>
         /// Sample request:
@@ -61,8 +61,8 @@ namespace Exchange.Api.Controllers
         /// <summary>
         /// Creates a Book.
         /// </summary>
-        /// <param name="coin">Coin</param>
-        /// <param name="InstructionDto">Instruction</param>
+        /// <param name="userId">user Id</param>
+        /// <param name="model">Instruction</param>
         /// <returns>A newly created Instruction</returns>
         /// <remarks>
         /// Sample request:
