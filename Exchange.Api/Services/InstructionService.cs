@@ -11,15 +11,13 @@ namespace Exchange.Api.Services
 {
     public class InstructionService : IInstructionService
     {
-        private readonly ILogger<InstructionService> _logger;
         private IMapper _mapper { get; }
         private readonly ExchangeDb _dbContext;
 
         private readonly Mass.IPublishEndpoint _publishEndpoint;
 
-        public InstructionService(ILogger<InstructionService> logger, ExchangeDb dbContext, IMapper mapper, Mass.IPublishEndpoint publishEndpoint)
+        public InstructionService(ExchangeDb dbContext, IMapper mapper, Mass.IPublishEndpoint publishEndpoint)
         {
-            _logger = logger;
             _dbContext = dbContext;
             _mapper = mapper;
             _publishEndpoint = publishEndpoint;
@@ -59,7 +57,7 @@ namespace Exchange.Api.Services
             {
                 return Response<InstructionDto>.Fail("Instruction not found", 404);
             }
-            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data), 200);
+            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data),1, 200);
         }
 
         /// <summary>
@@ -72,24 +70,20 @@ namespace Exchange.Api.Services
             {
                 return Response<InstructionDto>.Fail("Instruction not found", 404);
             }
-            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data), 200);
+            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data),1, 200);
         }
 
         /// <summary>
         /// Tüm Talimat listesi
         /// </summary>       
-        public async Task<Response<List<InstructionDto>>> GetAllAsync(string coin, long userId, FopQuery filter)
+        public async Task<Response<List<InstructionDto>>> GetAllAsync(long userId, FopQuery filter)
         {
-            var coinData = await _dbContext.Coins.FirstOrDefaultAsync(x => x.ShortName == coin && x.IsActive);
-            if (coinData == null)
-                return Response<List<InstructionDto>>.Fail("Coin not found", 404);
-
             var userData = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId && x.IsActive);
             if (userData == null)
                 return Response<List<InstructionDto>>.Fail("User not found", 404);
 
             var fopRequest = FopExpressionBuilder<Instruction>.Build(filter.Filter, filter.Order, filter.PageNumber, filter.PageSize);
-            var (data, totalDataCount) = _dbContext.Instructions.Where(x => x.UserId == userId && x.CoinId == coinData.Id).ApplyFop(fopRequest);
+            var (data, totalDataCount) = _dbContext.Instructions.Where(x => x.UserId == userId).ApplyFop(fopRequest);
             if (data == null)
             {
                 return Response<List<InstructionDto>>.Fail("Instruction not found", 404);
@@ -105,12 +99,12 @@ namespace Exchange.Api.Services
         /// Kullanıcı hangi kanallardan bilgilendirilmek istediğini seçmelidir. Kullanıcı birden fazla seçim yapabilir.
         /// Yapılan her bilgilendirme işlemi database seviyesinde loglanmalıdır. Hangi talimat için hangi kanaldan ne zaman hangi bilgilendirme yazısı ile yapıldı sorularına cevap verilebilmelidir.
         /// </summary>       
-        public async Task<Response<InstructionDto>> CreateAsync(string coin,long userId, InstructionCreateDto model)
+        public async Task<Response<InstructionDto>> CreateAsync(long userId, InstructionCreateDto model)
         {
             if (model == null)
                 return Response<InstructionDto>.Fail("Instruction informations cannot be empty", 400);
 
-            var coinData = await _dbContext.Coins.FirstOrDefaultAsync(x => x.ShortName == coin && x.IsActive);
+            var coinData = await _dbContext.Coins.FirstOrDefaultAsync(x => x.ShortName == model.Coin && x.IsActive);
             if (coinData == null)
                 return Response<InstructionDto>.Fail("Coin not found", 404);
 
@@ -132,18 +126,23 @@ namespace Exchange.Api.Services
             if (this.GetActive(userId).Result.Data != null)
                 return Response<InstructionDto>.Fail($"You can only have 1 active instruction", 403);
 
-            var data = _mapper.Map<Instruction>(model);
+            var data = new Instruction();
+            data.Amount = model.Amount;
             data.UserId = userId;
             data.CoinId = coinData.Id;
+            data.SmsAllow = userData.SmsAllow;
+            data.EmailAllow = userData.EmailAllow;
+            data.PushAllow = userData.PushAllow;
             data.CreatedDate = DateTime.Now;
             data.Status = 1; //Aktif
             await _dbContext.Instructions.AddAsync(data);
             await _dbContext.SaveChangesAsync();
             
             //Publish NotificationEvent
-            await _publishEndpoint.Publish<InstructionNotificationEvent>(new InstructionNotificationEvent { InstructionId = data.Id, UserNameSurName = userData.NameSurname, Email = userData.Email, Phone = userData.Phone, DeviceId = userData.DeviceId });
+            if(_publishEndpoint != null)
+                await _publishEndpoint.Publish<InstructionNotificationEvent>(new InstructionNotificationEvent { InstructionId = data.Id, UserNameSurName = userData.NameSurname, Email = userData.Email, Phone = userData.Phone, DeviceId = userData.DeviceId });
 
-            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data), 201);
+            return Response<InstructionDto>.Success(_mapper.Map<InstructionDto>(data),1, 201);
         }
 
 

@@ -7,9 +7,8 @@ namespace Exchange.Models.Api.Dtos
     public class InstructionCreateDto
     {
         [Required]
+        public string Coin { get; set; }
+        [Required]
         public decimal Amount { get; set; }
-        public bool? SmsAllow { get; set; }
-        public bool? EmailAllow { get; set; }
-        public bool? PushAllow { get; set; }
     }
 }

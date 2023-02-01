@@ -29,6 +29,11 @@ namespace Exchange.Api.Models.Entities
         public int StartOfInstructionDay { get; set; }
         [Required]
         public int EndOfInstructionDay { get; set; }
+
+        public bool? SmsAllow { get; set; }
+        public bool? EmailAllow { get; set; }
+        public bool? PushAllow { get; set; }
+
         [Required]
         public bool IsActive { get; set; }
         [Required]

@@ -55,6 +55,9 @@ namespace Exchange.Api.Models
                     MaxInstructionAmount = 20000,
                     StartOfInstructionDay = 1,
                     EndOfInstructionDay = 28,
+                    SmsAllow = false,
+                    EmailAllow = true,
+                    PushAllow = true,
                     IsActive = true,
                     CreatedDate = DateTime.Now
                 }

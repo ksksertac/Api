@@ -4,6 +4,7 @@ using Exchange.Api.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Exchange.Api.Migrations
 {
     [DbContext(typeof(ExchangeDb))]
-    partial class ExchangeDbModelSnapshot : ModelSnapshot
+    [Migration("20230201083125_user add sms,email,push allaw")]
+    partial class useraddsmsemailpushallaw
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

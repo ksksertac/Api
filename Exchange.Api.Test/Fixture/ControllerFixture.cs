@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Exchange.Api.Controllers;
 using Exchange.Api.Helpers;
 using Exchange.Api.Test.Mock.Entities;
+using Exchange.Api.Services;
 
 namespace Exchange.Api.Test.Fixture
 {
@@ -14,7 +15,8 @@ namespace Exchange.Api.Test.Fixture
     {
         private ExchangeDbContextMock dbContextMock { get; set; }
         private IMapper mapper { get; set; }
-        public InstructionsController instructionsController { get; private set; }
+        public InstructionsController _instructionsController { get; private set; }
+        public IInstructionService _instructionsService { get; private set; }
 
         public ControllerFixture()
         {   
@@ -32,9 +34,10 @@ namespace Exchange.Api.Test.Fixture
             mapper = mappingConfig.CreateMapper();
 
             #endregion
-
+            //Create Service
+            _instructionsService = new InstructionService(dbContextMock,mapper,null);
             // Create Controller
-            //instructionsController = new InstructionsController(dbContextMock,mapper);
+            _instructionsController = new InstructionsController(_instructionsService);
            
         }
 
@@ -57,7 +60,7 @@ namespace Exchange.Api.Test.Fixture
                 dbContextMock.Dispose();
                 dbContextMock = null;
                 mapper = null;
-                instructionsController = null;
+                _instructionsController = null;
             }
         }
     }

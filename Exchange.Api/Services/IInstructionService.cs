@@ -8,8 +8,8 @@ namespace Exchange.Api.Services
     {
         Task<Response<InstructionDto>> GetActive(long userId);
         Task<Response<InstructionDto>> GetById(long id);
-        Task<Response<List<InstructionDto>>> GetAllAsync(string coin, long userId,FopQuery filter);
-        Task<Response<InstructionDto>> CreateAsync(string coin,long userId,InstructionCreateDto model);
+        Task<Response<List<InstructionDto>>> GetAllAsync(long userId,FopQuery filter);
+        Task<Response<InstructionDto>> CreateAsync(long userId,InstructionCreateDto model);
         Task<Response<NoContent>> CancelAsync(long id ,long userId);
         Task<Response<NoContent>> UpdateAsync(InstructionDto model);
     }

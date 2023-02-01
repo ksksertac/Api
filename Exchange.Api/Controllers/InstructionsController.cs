@@ -10,12 +10,10 @@ namespace Exchange.Api.Controllers
     [ApiController]
     public class InstructionsController : CustomBaseController
     {
-        private readonly ILogger<InstructionsController> _logger;
         private readonly IInstructionService _instructionService;
 
-        public InstructionsController(ILogger<InstructionsController> logger, IInstructionService instructionService)
+        public InstructionsController(IInstructionService instructionService)
         {
-            _logger = logger;
             _instructionService = instructionService;
         }
 
@@ -33,10 +31,10 @@ namespace Exchange.Api.Controllers
         /// </remarks>
         /// <response code="20O">instruction list</response>
         /// <response code="404">If instruction does not exist</response>
-        [HttpGet]
-        public async Task<IActionResult> GetList(string coin, [FromQuery] FopQuery request,[FromHeader] long userId)
+        [HttpGet("/api/v1/users/{userId}/instructions")]
+        public async Task<IActionResult> GetList([FromQuery] FopQuery request,long userId)
         {
-            var response = await _instructionService.GetAllAsync(coin,userId,request);
+            var response = await _instructionService.GetAllAsync(userId,request);
             return base.CreateActionResultInstance(response);
         }
 
@@ -54,7 +52,7 @@ namespace Exchange.Api.Controllers
         /// <response code="200">If there is a record</response>
         /// <response code="404">If record does not exist</response>
         [HttpGet("/api/v1/users/{userId}/instructions/active")]
-        public async Task<IActionResult> Get([FromHeader] long userId)
+        public async Task<IActionResult> GetActive(long userId)
         {
             var response = await _instructionService.GetActive(userId);
             return CreateActionResultInstance(response);
@@ -81,10 +79,10 @@ namespace Exchange.Api.Controllers
         /// <response code="201">Record was created</response>
         /// <response code="400">If the record is null</response>
         /// <response code="404">If The record does not exist</response>
-        [HttpPost]
-        public async Task<IActionResult> Post(string coin, InstructionCreateDto model,[FromHeader] long userId)
+        [HttpPost("/api/v1/users/{userId}/instructions")]
+        public async Task<IActionResult> Post(long userId, InstructionCreateDto model)
         {
-            var response = await _instructionService.CreateAsync(coin,userId,model);
+            var response = await _instructionService.CreateAsync(userId,model);
             return CreateActionResultInstance(response);
         }
 
@@ -92,8 +90,8 @@ namespace Exchange.Api.Controllers
         /// <summary>
         /// Delete a instruction.
         /// </summary>
-        /// <param name="coin">Coin</param>
-        /// <param name="id">Instruction Id</param>
+        /// <param name="userId">Coin</param>
+        /// <param name="instructionId">Instruction Id</param>
         /// <returns></returns>
         /// <remarks>
         /// Sample request:
@@ -103,10 +101,10 @@ namespace Exchange.Api.Controllers
         /// </remarks>
         /// <response code="204">Record was deleted</response>
         /// <response code="404">If the instruction does not exist</response>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string coin, long id,[FromHeader] long userId)
+        [HttpDelete("/api/v1/users/{userId}/instructions/{instructionId}")]
+        public async Task<IActionResult> Delete(long userId,long instructionId)
         {
-            var response = await _instructionService.CancelAsync(id,userId);
+            var response = await _instructionService.CancelAsync(instructionId,userId);
             return CreateActionResultInstance(response);
         }
 
