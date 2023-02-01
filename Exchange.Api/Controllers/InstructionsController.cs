@@ -26,7 +26,7 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     GET /api/v1/exchanges/btc/instructions?pageNumber=1&pageSize=10&order=createdDate;asc
+        ///     GET /api/v1/users/1/instructions?pageNumber=1&pageSize=10&order=createdDate;asc
         ///
         /// </remarks>
         /// <response code="20O">instruction list</response>
@@ -67,12 +67,10 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /api/v1/exchanges/btc/instructions
+        ///     POST /api/v1/users/1/instructions
         ///     {
-        ///         "amount": 390,
-        ///         "smsAllow": true,
-        ///         "emailAllow": true,
-        ///         "pushAllow": true
+        ///         "coin": "btc",
+        ///         "amount": 240
         ///     }
         ///
         /// </remarks>
@@ -96,7 +94,7 @@ namespace Exchange.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     DELETE /api/v1/exchanges/btc/instructions/3
+        ///     DELETE /api/v1/users/1/instructions/4
         ///
         /// </remarks>
         /// <response code="204">Record was deleted</response>

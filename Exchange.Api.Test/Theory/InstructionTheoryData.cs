@@ -14,10 +14,7 @@ namespace Exchange.Api.Test.Theory
             Add(new InstructionCreateDto()
             {
                 Coin = "btc",
-                Amount = 200,
-                SmsAllow = false,
-                EmailAllow = false,
-                PushAllow = true
+                Amount = 200
             });
         }
     }
