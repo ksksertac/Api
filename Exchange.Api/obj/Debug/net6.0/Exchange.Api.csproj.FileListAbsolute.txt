@@ -108,3 +108,8 @@
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.pdb
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.genruntimeconfig.cache
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/ref/Exchange.Api.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Elasticsearch.Net.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Enrichers.Environment.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Exceptions.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Formatting.Elasticsearch.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Elasticsearch.dll

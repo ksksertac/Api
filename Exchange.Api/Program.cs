@@ -8,8 +8,13 @@ using Exchange.Api.Middlewares;
 using Exchange.Api.Models;
 using Exchange.Api.Extensions;
 using Exchange.Api.Services;
+using Serilog.Sinks.Elasticsearch;
+using System.Reflection;
+using Serilog.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigureLogging();
+builder.Host.UseSerilog();
 builder.Services.AddDbContext<ExchangeDb>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"),b=>{
@@ -35,14 +40,14 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<INotificationService,NotificationService>();
 builder.Services.AddScoped<IInstructionService,InstructionService>();
 
-var logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
-            .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", Serilog.Events.LogEventLevel.Error)
-            .Enrich.FromLogContext()
-            .WriteTo.File($"Logs/{Path.DirectorySeparatorChar}.txt", rollingInterval: RollingInterval.Day, flushToDiskInterval: TimeSpan.FromDays(1))
-            .Enrich.FromLogContext()
-            .CreateLogger();
-builder.Logging.AddSerilog(logger);
+// var logger = new LoggerConfiguration()
+//             .MinimumLevel.Information()
+//             .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Command", Serilog.Events.LogEventLevel.Error)
+//             .Enrich.FromLogContext()
+//             .WriteTo.File($"Logs/{Path.DirectorySeparatorChar}.txt", rollingInterval: RollingInterval.Day, flushToDiskInterval: TimeSpan.FromDays(1))
+//             .Enrich.FromLogContext()
+//             .CreateLogger();
+// builder.Logging.AddSerilog(logger);
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
@@ -72,3 +77,35 @@ using (var scope = app.Services.CreateScope())
     }
 }
 app.Run();
+
+
+void ConfigureLogging()
+{
+    var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+    var configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile(
+            $"appsettings.Development.json",
+            optional: true)
+        .Build();
+
+    Log.Logger = new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        .Enrich.WithExceptionDetails()
+        .WriteTo.Debug()
+        .WriteTo.Console()
+        .WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
+        .WriteTo.File($"Logs/{Path.DirectorySeparatorChar}.txt", rollingInterval: RollingInterval.Day, flushToDiskInterval: TimeSpan.FromDays(1))
+        .Enrich.WithProperty("Environment", environment)
+        .ReadFrom.Configuration(configuration)
+        .CreateLogger();
+}
+
+ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, string environment)
+{
+    return new ElasticsearchSinkOptions(new Uri(configuration["ElasticConfiguration:Uri"]))
+    {
+        AutoRegisterTemplate = true,
+        IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}"
+    };
+}
