@@ -17,6 +17,7 @@ services:
       - MSSQL_PID=Developer
       - MSSQL_USER=SA
   exchange_api:
+    platform: linux/amd64
     container_name: exchange_api
     restart: on-failure
     environment:

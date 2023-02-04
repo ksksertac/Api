@@ -1,15 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 as build
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build-env
+WORKDIR /App
 
-COPY Exchange.Api/*.csproj Exchange.Api/
-RUN dotnet restore  Exchange.Api/*.csproj
+# Copy everything
+COPY . ./
+# Restore as distinct layers
+RUN dotnet restore
+# Build and publish a release
+RUN dotnet publish -c Release -r linux-x64 -o out
 
-COPY . .
-RUN dotnet publish Exchange.Api/*.csproj -c Release -o out
-FROM mcr.microsoft.com/dotnet/sdk:6.0 as runtime
-WORKDIR /app
-
-COPY --from=build /app/out .
-ENTRYPOINT [ "dotnet","Exchange.Api.dll" ]
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal
+WORKDIR /App
+COPY --from=build-env /App/out .
+ENTRYPOINT ["dotnet", "Exchange.Api.dll"]
