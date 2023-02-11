@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1pploD1t98v/BzfrlLjVOEa1x43ntVgM6Fi/g3AD4T8=",
+  "Source": "Exchange.Gateway",
+  "BasePath": "_content/Exchange.Gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "efqFIkJTXK7qaZ7wViIhbsAPcF0IRUeJlO/g5BfoaPA=",
+  "Source": "Exchange.IdentityServer",
+  "BasePath": "_content/Exchange.IdentityServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

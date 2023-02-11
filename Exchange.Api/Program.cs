@@ -92,13 +92,17 @@ void ConfigureLogging()
     Log.Logger = new LoggerConfiguration()
         .Enrich.FromLogContext()
         .Enrich.WithExceptionDetails()
+        .Enrich.WithProperty("Application", "Exchange api")
         .WriteTo.Debug()
         .WriteTo.Console()
         .WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
         .WriteTo.File($"Logs/{Path.DirectorySeparatorChar}.txt", rollingInterval: RollingInterval.Day, flushToDiskInterval: TimeSpan.FromDays(1))
         .Enrich.WithProperty("Environment", environment)
         .ReadFrom.Configuration(configuration)
+
         .CreateLogger();
+    
+    Log.Information("Started app");
 }
 
 ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, string environment)

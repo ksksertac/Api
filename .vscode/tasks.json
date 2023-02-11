@@ -36,6 +36,20 @@
                 "${workspaceFolder}/Exchange.Api/Exchange.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
+
+
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Exchange.IdentityServer/Exchange.IdentityServer.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ]
 }
