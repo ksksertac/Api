@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.Api", "Exchange.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.Api.Test", "Exchange.Api.Test\Exchange.Api.Test.csproj", "{44467133-E00E-40D3-A115-DFC99B848454}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.Gateway", "Exchange.Gateway\Exchange.Gateway.csproj", "{61C0DE2E-D07B-4170-A6B1-BFA9A1F2E216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange.IdentityServer", "Exchange.IdentityServer\Exchange.IdentityServer.csproj", "{E8F01C4B-EFCF-4AF7-BF07-764FF170DF17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{44467133-E00E-40D3-A115-DFC99B848454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44467133-E00E-40D3-A115-DFC99B848454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44467133-E00E-40D3-A115-DFC99B848454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C0DE2E-D07B-4170-A6B1-BFA9A1F2E216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C0DE2E-D07B-4170-A6B1-BFA9A1F2E216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C0DE2E-D07B-4170-A6B1-BFA9A1F2E216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C0DE2E-D07B-4170-A6B1-BFA9A1F2E216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F01C4B-EFCF-4AF7-BF07-764FF170DF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F01C4B-EFCF-4AF7-BF07-764FF170DF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F01C4B-EFCF-4AF7-BF07-764FF170DF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F01C4B-EFCF-4AF7-BF07-764FF170DF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

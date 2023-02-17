@@ -3,11 +3,13 @@ using Exchange.Api.Services;
 using Fop;
 using Microsoft.AspNetCore.Mvc;
 using Exchange.Api.ControllerBases;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Exchange.Api.Controllers
 {
-    [Route("api/v1/exchanges/{coin}/instructions")]
+    [Authorize]
     [ApiController]
+    [Route("api/v1/exchanges/{coin}/instructions")]
     public class InstructionsController : CustomBaseController
     {
         private readonly IInstructionService _instructionService;

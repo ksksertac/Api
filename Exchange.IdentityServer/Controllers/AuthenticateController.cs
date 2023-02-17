@@ -8,7 +8,7 @@ using Exchange.Auth;
 
 namespace Exchange.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/login")]
     [ApiController]
     public class AuthenticateController : ControllerBase
     {
@@ -27,7 +27,6 @@ namespace Exchange.Controllers
         }
 
         [HttpPost]
-        [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
@@ -57,8 +56,7 @@ namespace Exchange.Controllers
             return Unauthorized();
         }
 
-        [HttpPost]
-        [Route("register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
@@ -78,8 +76,7 @@ namespace Exchange.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
-        [HttpPost]
-        [Route("register-admin")]
+        [HttpPost("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
@@ -116,15 +113,21 @@ namespace Exchange.Controllers
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY3NjE0Mjc5MiwiaWF0IjoxNjc2MTQyNzkyfQ.pCsAwfOzoijITqra4GHoAAFPvmPa-9liNsCBoqJ6gmk"));
 
-            var token = new JwtSecurityToken(
-                issuer: _configuration["JWT:ValidIssuer"],
-                audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddYears(3),
-                claims: authClaims,
-                signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                );
+            // var token = new JwtSecurityToken(
+            //     issuer: _configuration["JWT:ValidIssuer"],
+            //     audience: _configuration["JWT:ValidAudience"],
+            //     expires: DateTime.Now.AddYears(3),
+            //     claims: authClaims,
+            //     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+            //     );
+            var now = DateTime.UtcNow;
+            var jwt = new JwtSecurityToken(
+                 notBefore: now,
+                 expires: now.Add(TimeSpan.FromMinutes(2)),
+                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JWT:Exchange"])), SecurityAlgorithms.HmacSha256)
+             );
 
-            return token;
+            return jwt;
         }
     }
 }

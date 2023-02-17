@@ -25,6 +25,7 @@
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Automatonymous.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/DynamicExpresso.Core.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Elasticsearch.Net.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Fop.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/GreenPipes.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Humanizer.dll
@@ -32,6 +33,7 @@
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.AspNetCoreIntegration.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/MassTransit.RabbitMqTransport.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
@@ -59,13 +61,17 @@
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/RabbitMQ.Client.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.AspNetCore.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Enrichers.Environment.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Exceptions.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Expressions.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Extensions.Hosting.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Extensions.Logging.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Formatting.Compact.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Formatting.Elasticsearch.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Console.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Debug.dll
+/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Elasticsearch.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.File.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.PeriodicBatching.dll
 /Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Seq.dll
@@ -108,8 +114,3 @@
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.pdb
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/Exchange.Api.genruntimeconfig.cache
 /Users/sertac/Desktop/Api/Exchange.Api/obj/Debug/net6.0/ref/Exchange.Api.dll
-/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Elasticsearch.Net.dll
-/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Enrichers.Environment.dll
-/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Exceptions.dll
-/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Formatting.Elasticsearch.dll
-/Users/sertac/Desktop/Api/Exchange.Api/bin/Debug/net6.0/Serilog.Sinks.Elasticsearch.dll

@@ -29,48 +29,49 @@ namespace Exchange.Gateway.DelegateHandlers
                 return _accessToken;
             }
 
-            var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
-            {
-                Address = _configuration["IdentityServerURL"],
-                Policy = new DiscoveryPolicy { RequireHttps = false }
-            });
+            // var disco = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+            // {
+            //     Address = _configuration["IdentityServerURL"],
+            //     Policy = new DiscoveryPolicy { RequireHttps = false }
+            // });
 
-            if (disco.IsError)
-            {
-                throw disco.Exception;
-            }
+            // if (disco.IsError)
+            // {
+            //     throw disco.Exception;
+            // }
 
-            TokenExchangeTokenRequest tokenExchangeTokenRequest = new TokenExchangeTokenRequest()
-            {
-                Address = disco.TokenEndpoint,
-                ClientId = _configuration["ClientId"],
-                ClientSecret = _configuration["ClientSecret"],
-                GrantType = _configuration["TokenGrantType"],
-                SubjectToken = requestToken,
-                SubjectTokenType = "urn:ietf:params:oauth:token-type:access-token",
-                Scope = "openid discount_fullpermission payment_fullpermission"
-            };
+            // TokenExchangeTokenRequest tokenExchangeTokenRequest = new TokenExchangeTokenRequest()
+            // {
+            //     Address = disco.TokenEndpoint,
+            //     ClientId = _configuration["ClientId"],
+            //     ClientSecret = _configuration["ClientSecret"],
+            //     GrantType = _configuration["TokenGrantType"],
+            //     SubjectToken = requestToken,
+            //     SubjectTokenType = "urn:ietf:params:oauth:token-type:access-token",
+            //     Scope = "openid discount_fullpermission payment_fullpermission"
+            // };
 
-            var tokenResponse = await _httpClient.RequestTokenExchangeTokenAsync(tokenExchangeTokenRequest);
+            // var tokenResponse = await _httpClient.RequestTokenExchangeTokenAsync(tokenExchangeTokenRequest);
 
-            if (tokenResponse.IsError)
-            {
-                throw tokenResponse.Exception;
-            }
+            // if (tokenResponse.IsError)
+            // {
+            //     throw tokenResponse.Exception;
+            // }
 
-            _accessToken = tokenResponse.AccessToken;
-
+            //_accessToken = tokenResponse.AccessToken;
+            _accessToken = requestToken;
+            
             return _accessToken;
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var requestToken = request.Headers.Authorization.Parameter;
-
-            var newToken = await GetToken(requestToken);
-
-            request.SetBearerToken(newToken);
-
+            if(request.Headers.Authorization != null)
+            {
+                var requestToken = request.Headers.Authorization.Parameter;
+                var newToken = await GetToken(requestToken);
+                request.SetBearerToken(newToken);
+            }
             return await base.SendAsync(request, cancellationToken);
         }
     }

@@ -1,5 +1,7 @@
 /Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/appsettings.Development.json
 /Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/appsettings.json
+/Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/configuration.development.json
+/Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/configuration.production.json
 /Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/Exchange.Gateway
 /Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/Exchange.Gateway.deps.json
 /Users/sertac/Desktop/Api/Exchange.Gateway/bin/Debug/net6.0/Exchange.Gateway.runtimeconfig.json
