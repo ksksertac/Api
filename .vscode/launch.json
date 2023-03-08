@@ -9,7 +9,8 @@
             "configurations": [
                 "Exchange.Gateway",
                 "Exchange.Api",
-                "Exchange.Identity"
+                "Exchange.Identity",
+                "Order.Api"
             ]
         },
     ],
@@ -73,6 +74,28 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
                 "ASPNETCORE_URLS" : "http://localhost:4002"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+
+        {
+            "name": "Order.Api",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/Order.Api/bin/Debug/net6.0/Order.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Order.Api",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS" : "http://localhost:4003"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

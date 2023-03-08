@@ -89,5 +89,32 @@
             ],
             "problemMatcher": "$msCompile"
         },
+
+
+
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Order.Api/Order.Api.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/Order.Api/Order.Api.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
     ]
 }

@@ -28,3 +28,15 @@ services:
       - "5001:5001"
     depends_on:
       - sqldb
+  order_api:
+    container_name: order_api
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5002
+      - RabbitMqUrl=rabbitmq
+      - ConnectionStrings=Server=sqldb;Database=OrderDb;User=sa;Password=MyPass@word;
+    ports:
+      - "5002:5002"
+    depends_on:
+      - sqldb

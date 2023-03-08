@@ -5,6 +5,7 @@ using MassTransit;
 namespace Exchange.Api.Extensions
 {
     public static class MassTransitExtension
+    
     {
         public static void MassTransitConfiguration(this IServiceCollection services, IConfiguration Configuration)
         {

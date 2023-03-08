@@ -9,3 +9,8 @@ services:
     build:
       context: .
       dockerfile: Exchange.Api/Dockerfile
+  order_api:
+    image: order_api_image
+    build:
+      context: .
+      dockerfile: Order.Api/Dockerfile
